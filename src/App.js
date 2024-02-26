@@ -1,24 +1,13 @@
-/*import Weather from "./Weather.js";
-import React from "react";
+import React from 'react';
 
-const App = () => {
+import Main from "./Components/Main/Main.js"
+
+function App() {
   return <>
-  <div>
-    <Weather />
+  <div> 
+    <Main />
   </div>
   </>
 }
 
-export default App*/
-
-import React from 'react';
-import Weather from './Weather';
-const App = () => {
-  return (
-    <div>
-      <h1>Weather Forecast App</h1>
-      <Weather />
-    </div>
-  );
-};
 export default App;
