@@ -1,4 +1,4 @@
-import Weather from "./Weather.js";
+/*import Weather from "./Weather.js";
 import React from "react";
 
 const App = () => {
@@ -9,4 +9,16 @@ const App = () => {
   </>
 }
 
-export default App
+export default App*/
+
+import React from 'react';
+import Weather from './Weather';
+const App = () => {
+  return (
+    <div>
+      <h1>Weather Forecast App</h1>
+      <Weather />
+    </div>
+  );
+};
+export default App;
