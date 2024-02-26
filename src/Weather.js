@@ -4,6 +4,7 @@ import axios from 'axios';
 const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -18,13 +19,16 @@ const Weather = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchData();
   };
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
