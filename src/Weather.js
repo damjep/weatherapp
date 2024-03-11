@@ -47,9 +47,24 @@ const Weather = () => {
           <p>Temperature: {weatherData.main.temp}°C</p>
           <p>Description: {weatherData.weather[0].description}</p>
           <p>Feels like : {weatherData.main.feels_like}°C</p>
-          <p>Humidity : {weatherData.main.humidity}%</p>
-          <p>Pressure : {weatherData.main.pressure}</p>
-          <p>Wind Speed : {weatherData.wind.speed}m/s</p>
+          <div class="box-holder">
+            <div class="box1">
+            <p class="p1">Elevation</p>
+            <p class="p2">{weatherData.main.elevation}m</p>
+            </div>
+            <div class="box1">
+              <p class="p1">Humidity</p>
+              <p class="p2">{weatherData.main.humidity}%</p>
+            </div>
+            <div class="box1">
+              <p class="p1">Pressure</p>
+              <p class="p2">{weatherData.main.pressure}</p>
+            </div>
+            <div class="box1">
+              <p class="p1">Wind Speed</p>
+              <p class="p2">{weatherData.wind.speed}m/s</p>
+            </div>
+          </div>
         </>
       ) : (
         <p>Loading weather data...</p>
