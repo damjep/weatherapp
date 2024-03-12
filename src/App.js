@@ -16,10 +16,6 @@ import Weather from './Weather';
 const App = () => {
   return (
     <div>
-      <div class="menu-bnt">
-        <div></div>
-      </div>
-      <h1>Weather Forecast App</h1>
       <Weather/>
     </div>
   );

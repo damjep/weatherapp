@@ -12,9 +12,45 @@ code {
     monospace;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.location {
+  margin: 10px 0px;
+}
+
+.menu-bnt{
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+
+.menu-line{
+  width: 30px;
+  height: 4px;
+  background: #1e1e1e;
+  border-radius: 3px;
+}
+
+.menu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+}
+
+
 .box1 {
-  width: 297px;
-  height: 183px;
+  width: 9em;
+  height: 5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,14 +63,14 @@ code {
   border-radius: 17px;
 }
 .p1{
-  font-size: 20px;
+  font-size: 10px;
   font-weight: 800;
 }
 .p2{
-  font-size: 30px;
+  font-size: 15px;
 }
 .box-holder {
-  width: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
 }
