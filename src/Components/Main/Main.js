@@ -91,7 +91,10 @@ export default function Main() {
                     <div className="left">
                         <Temp t={weatherData.main.temp} />
                         <p className="desc">{weatherData.weather[0].description}</p>
-                        <p className="feels_like">Feels Like: {weatherData.main.feels_like}</p>
+                        <div>
+                            <p className="feels_like">Feels Like: {weatherData.main.feels_like}</p>
+                        </div>
+                        
                     </div>
                     <Icon icon={weatherData.weather[0].icon} />
                 </div>
