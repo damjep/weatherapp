@@ -72,15 +72,26 @@ export default function Main() {
         </>
     }
 
+    function Temp(t) {
+        let T = JSON.stringify(t).split("")[5]
+        T += JSON.stringify(t).split("")[6]
+        T += JSON.stringify(t).split("")[7]
+        T += JSON.stringify(t).split("")[8]
+        T += JSON.stringify(t).split("")[9]
+        let tRounded = parseInt(T)
+
+        return (<p className="temp">{tRounded} &deg;C</p>)
+    }
+    
     return (
         <>
             {weatherData ? (
                 <>
                 <div className="container">
                     <div className="left">
-                        <p className="temp">{weatherData.main.temp} &deg;C</p>
+                        <Temp t={weatherData.main.temp} />
                         <p className="desc">{weatherData.weather[0].description}</p>
-                        <p className="feels_like">{weatherData.main.feels_like}</p>
+                        <p className="feels_like">Feels Like: {weatherData.main.feels_like}</p>
                     </div>
                     <Icon icon={weatherData.weather[0].icon} />
                 </div>

@@ -71,15 +71,6 @@ const Weather = () => {
   
   return (
     <div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Get Weather</button>
-      </form> */}
       {weatherData ? (
         <>
           <div class="box-holder">

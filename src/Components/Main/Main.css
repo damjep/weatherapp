@@ -18,12 +18,9 @@
         font-size: 50px;
     }
 
-
-
     /* Partly Cloudy */
     .desc {/* Partly Cloudy */
-
-        
+        text-transform: capitalize;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
