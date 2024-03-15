@@ -1,0 +1,60 @@
+
+@media (max-width: 420px)  { 
+
+    .container {
+        width: 100vw;
+        height: 30vh;
+        display: flex;
+        margin: auto;
+    }
+
+
+    /* temp */
+    .temp {
+        width: auto;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+
+
+    /* Partly Cloudy */
+    .desc {/* Partly Cloudy */
+
+        
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        /* identical to box height */
+        
+        color: black;
+        
+        }
+
+
+    /* identical to box height */
+    .box {color: #FFFFFF;
+    }
+
+    .left {
+        flex: 60%;
+    }
+
+    .right {
+        flex: auto;
+        width: auto;
+        display: block;
+    }
+
+    img {
+        position: relative;
+        height: 130px;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+        top: 55px;
+    }
+}

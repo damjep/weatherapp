@@ -12,10 +12,15 @@ const App = () => {
 export default App*/
 
 import React from 'react';
-import Weather from './Weather';
+import Weather from './Components/Weather/Weather';
+import Main from './Components/Main/Main';
 const App = () => {
   return (
     <div>
+      <div class="menu-bnt">
+        <div></div>
+      </div>
+      <Main />
       <Weather/>
     </div>
   );

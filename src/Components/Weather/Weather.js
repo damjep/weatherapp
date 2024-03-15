@@ -5,7 +5,6 @@ const Weather = () => {
   //const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [elevation, setElevation] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const fetchElevation = async (latitude, longitude) => {
     try {
@@ -83,14 +82,7 @@ const Weather = () => {
       </form> */}
       {weatherData ? (
         <>
-          <div class="header">
-            <div class="menu-bnt">
-              <div class="menu-line l1"></div>
-              <div class="menu-line l2"></div>
-              <div class="menu-line l3"></div>
-            </div>
-            <h2 class="location">{weatherData.name}</h2>
-          </div>
+          <h2>{weatherData.name}</h2>
           <p>Temperature: {weatherData.main.temp}°C</p>
           <p>Description: {weatherData.weather[0].description}</p>
           <p>Feels like : {weatherData.main.feels_like}°C</p>
