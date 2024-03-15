@@ -49,7 +49,7 @@ export const Warning = () => {
                         {alertData.alerts.alert[0] ? (
                             <>
                                 <p>
-                                    Hi
+                                    {alertData.alerts.alert[0]}
                                 </p>
                             </>
                         ) : (
