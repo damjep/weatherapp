@@ -5,7 +5,6 @@ const Weather = () => {
   //const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [elevation, setElevation] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const fetchElevation = async (latitude, longitude) => {
     try {
@@ -72,17 +71,9 @@ const Weather = () => {
   
   return (
     <div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Get Weather</button>
-      </form> */}
       {weatherData ? (
         <>
+<<<<<<< HEAD:src/Weather.js
           <div class="header">
             <div class="menu-bnt" 
             className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
@@ -113,6 +104,8 @@ const Weather = () => {
           <p>Temperature: {weatherData.main.temp}°C</p>
           <p>Description: {weatherData.weather[0].description}</p>
           <p>Feels like : {weatherData.main.feels_like}°C</p>
+=======
+>>>>>>> 6cab67bed19cb37067a38b374655ff5dd5818837:src/Components/Weather/Weather.js
           <div class="box-holder">
             <div class="box1">
               <p class="p1">Elevation</p>
