@@ -69,8 +69,8 @@ code {
 
 
 .box1 {
-  width: 9em;
-  height: 5em;
+  width: 20vw;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,6 +90,7 @@ code {
   font-size: 15px;
 }
 .box-holder {
+  width: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0px;
