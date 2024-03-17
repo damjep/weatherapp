@@ -78,11 +78,15 @@ const Menu = () => {
         <>
           <div class="header">
             <div class="menu-bnt">
+            <div class="menu-bnt" 
+            className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <div class="menu-line l1"></div>
               <div class="menu-line l2"></div>
               <div class="menu-line l3"></div>
             </div>
             <h2 class="location">{weatherData.name}</h2>
+          </div>
           </div>
         </>
       ) : (
