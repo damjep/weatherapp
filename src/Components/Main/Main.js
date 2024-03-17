@@ -4,24 +4,6 @@ import "./Main.css"
 
 export default function Main() {
     const [weatherData, setWeatherData] = useState(null);
-    const [elevation, setElevation] = useState(null);
-
-    const fetchElevation = async (latitude, longitude) => {
-        try {
-        const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
-        const response = await axios.get(
-            `https://maps.googleapis.com/maps/api/elevation/json?locations=${latitude},${longitude}&key=${apiKey}`
-        );
-
-        // Extract elevation data from the response
-        const elevationResult = response.data.results[0];
-        const elevationValue = elevationResult ? elevationResult.elevation : null;
-
-        setElevation(elevationValue);
-        } catch (error) {
-        console.error('Error fetching elevation data:', error);
-        }
-    };
 
     const fetchData = async (latitude, longitude) => {
         try {
@@ -32,7 +14,6 @@ export default function Main() {
         setWeatherData(response.data);
         console.log(response.data); //You can see all the weather data in console log
         // Fetch elevation data using geolocation coordinates
-        fetchElevation(latitude, longitude);
         } catch (error) {
         console.error(error);
         }
