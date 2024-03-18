@@ -77,12 +77,31 @@ const Menu = () => {
       {weatherData ? (
         <>
           <div class="header">
-            <div class="menu-bnt">
+            <div class="menu-bnt" 
+            className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <div class="menu-line l1"></div>
               <div class="menu-line l2"></div>
               <div class="menu-line l3"></div>
             </div>
             <h2 class="location">{weatherData.name}</h2>
+          </div>
+          <div class="menu" style={{ display: isMenuOpen ? 'block' : 'none' }} id="menu">
+            <div class="card-holder">
+              <div class="loca-card">
+                <div class="loca-info">
+                  <p>{weatherData.name}</p>
+                  <p>{weatherData.weather[0].description}</p>
+                </div>
+                <p>{weatherData.main.temp}°C</p>
+              </div>
+              <div>
+                
+              </div>
+              <div class="loca-card plus-card">
+                <div class="plus"></div>
+              </div>
+            </div>
           </div>
         </>
       ) : (

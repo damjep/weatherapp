@@ -73,39 +73,6 @@ const Weather = () => {
     <div>
       {weatherData ? (
         <>
-<<<<<<< HEAD:src/Weather.js
-          <div class="header">
-            <div class="menu-bnt" 
-            className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <div class="menu-line l1"></div>
-              <div class="menu-line l2"></div>
-              <div class="menu-line l3"></div>
-            </div>
-            <h2 class="location">{weatherData.name}</h2>
-          </div>
-          <div class="menu" style={{ display: isMenuOpen ? 'block' : 'none' }} id="menu">
-            <div class="card-holder">
-              <div class="loca-card">
-                <div class="loca-info">
-                  <p>{weatherData.name}</p>
-                  <p>{weatherData.weather[0].description}</p>
-                </div>
-                <p>{weatherData.main.temp}°C</p>
-              </div>
-              <div>
-                
-              </div>
-              <div class="loca-card plus-card">
-                <div class="plus"></div>
-              </div>
-            </div>
-          </div>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Description: {weatherData.weather[0].description}</p>
-          <p>Feels like : {weatherData.main.feels_like}°C</p>
-=======
->>>>>>> 6cab67bed19cb37067a38b374655ff5dd5818837:src/Components/Weather/Weather.js
           <div class="box-holder">
             <div class="box1">
               <p class="p1">Elevation</p>
