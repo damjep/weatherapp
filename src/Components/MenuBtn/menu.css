@@ -36,3 +36,13 @@
   left: 0;
   height: 100%;
 }
+.delete-btn>.l1{
+  transform: 
+    translate(0px, 2px) 
+    rotate(405deg);
+}
+.delete-btn>.l2{
+  transform: 
+    translate(0px, -2px) 
+    rotate(135deg);
+}
