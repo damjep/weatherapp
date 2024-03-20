@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+
 const Weather = () => {
   //const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
@@ -90,6 +92,8 @@ const Weather = () => {
               <p class="p1">Wind Speed</p>
               <p class="p2">{weatherData.wind.speed}m/s</p>
             </div>
+      
+            
           </div>
         </>
       ) : (

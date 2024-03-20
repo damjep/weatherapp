@@ -3,6 +3,7 @@ import Weather from './Components/Weather/Weather';
 import Main from './Components/Main/Main';
 import Menu from './Components/MenuBtn/Menu';
 import { Warning } from './Components/warning/warning';
+import HourlyForecast from './Components/Hourly/HourlyForecast';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Main/>
       <Warning/>
       <Weather/>
+      <HourlyForecast/>
     </div>
   );
 };
