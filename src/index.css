@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-image: linear-gradient(190deg, #2186E2, #8AD2FA);
+  color: white;
 }
 
 code {
@@ -35,7 +38,7 @@ code {
 .menu-line{
   width: 30px;
   height: 4px;
-  background: #1e1e1e;
+  background: white;
   border-radius: 3px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 }
