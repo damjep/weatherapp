@@ -1,0 +1,20 @@
+/* Rectangle 14 */
+.warning {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: 150px;
+
+    background: rgba(16, 16, 16, 0.1);
+    box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.5);
+    border-radius: 17px;
+}
+
+.warning p {
+    position: relative;
+    margin: auto;
+}
+
+svg {
+    margin: auto;
+}
