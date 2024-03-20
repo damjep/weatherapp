@@ -115,6 +115,7 @@ code {
   align-items: center;
   padding: 10px;
   margin: 10px;
+  position: relative;
 }
 .loca-card>p{
   font-size: 41px;
