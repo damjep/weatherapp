@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+
+@media (min-width: 421px) {
+  .desktop {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .night {
+    /* Desktop Frame */
+    background: linear-gradient(205.41deg, #21205B 11.26%, rgba(117, 115, 198, 0.76) 83.9%);
+  }
+
+  .eclipse {
+    /* Ellipse 42 */
+    position: absolute;
+    width: 914px;
+    height: 873px;
+    right: -20em;
+    bottom: -30em;
+
+    background: rgba(253, 173, 255, 0.33);
+    filter: blur(166.65px);
+  }
+
+  .eclipse2 {
+    /* Ellipse 40 */
+    position: absolute;
+    width: 914px;
+    height: 873px;
+    right: -20em;
+    top: -35em;
+
+    background: rgba(127, 67, 255, 0.33);
+    filter: blur(166.65px);
+  }
+
+  .left {
+    margin: 2em;
+    flex: 50%;
+  }
+
+  .right {
+    margin: 2em;
+    flex: 50%;
+  }
+}

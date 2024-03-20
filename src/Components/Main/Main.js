@@ -1,43 +1,35 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { FetchData } from "../fetch/fetchData";
 import "./Main.css"
 
 export default function Main() {
     const [weatherData, setWeatherData] = useState(null);
 
-    const fetchData = async (latitude, longitude) => {
-        try {
-        const apiKey = '1a945b25256fccab584f58958074cda8';
-        const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
-        );
-        setWeatherData(response.data);
-        console.log(response.data); //You can see all the weather data in console log
-        // Fetch elevation data using geolocation coordinates
-        } catch (error) {
-        console.error(error);
-        }
-    };
     useEffect(() => {
         // Check if geolocation is supported by the browser
         if (navigator.geolocation) {
-        // Get the user's current location
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            // Get the user's current location
+            navigator.geolocation.getCurrentPosition(
+                async function (position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
 
-            // Fetch weather data using geolocation coordinates
-            fetchData(latitude, longitude);
-            },
+                try {
+                    const data = await FetchData(latitude, longitude);
+                    setWeatherData(data)
+                } catch (error) {
+                    console.log(error)
+                }
+                // Fetch weather data using geolocation coordinates
+                
+                },
             function (error) {
-            // Handle errors in getting the user's location
-            console.error('Error getting location:', error.message);
-            }
-        );
-        } else {
-        // Geolocation is not supported by the browser
-        console.error('Geolocation is not supported by this browser.');
+                // Handle errors in getting the user's location
+                console.error('Error getting location:', error.message);
+                }
+        );} else {
+            // Geolocation is not supported by the browser
+            console.error('Geolocation is not supported by this browser.');
         }
     }, []);
         
