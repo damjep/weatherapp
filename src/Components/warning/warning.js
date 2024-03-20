@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {ReactComponent as svg} from "./warning.svg" 
 import "./warning.css"
 
 export const Warning = () => {
