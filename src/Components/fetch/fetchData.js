@@ -1,8 +1,6 @@
 import axios from "axios";
-import { fetchElevation } from "./fetchElevation";
 
-export default class FetchData {
-    async fetchData(latitude , longitude) {
+export async function FetchData(latitude, longitude) {
     try {
       const apiKey = '1a945b25256fccab584f58958074cda8';
       const response = await axios.get(
@@ -13,9 +11,8 @@ export default class FetchData {
       return response.data
        //You can see all the weather data in console log
       // Fetch elevation data using geolocation coordinates
-      fetchElevation(latitude, longitude);
     } catch (error) {
       console.error(error);
     }
   }; 
-}
+
