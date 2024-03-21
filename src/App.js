@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Weather from './Components/Weather/Weather';
 import Main from './Components/Main/Main';
 import Menu from './Components/MenuBtn/Menu';
+import HF from './Components/Forcast/HourlyForecast';
+import HR from './Components/Forcast/HourlyRain';
 import { Warning } from './Components/warning/warning';
-import "./App.css"
+import "./App.css";
 import useWeatherData from './Components/fetch/useWeatherData';
 
 
@@ -37,7 +39,11 @@ function App() {
     <div className='right'>
       <Warning/>
       <Weather/>
+      <HF/>
+      <HR/>
     </div>
+
+
   </div>
   </>);
 };
