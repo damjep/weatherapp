@@ -3,6 +3,7 @@ import useWeatherData from '../fetch/useWeatherData';
 import UseElevation from '../fetch/useElevationData';
 
 const Weather = () => {
+  //fetch weather/elevation data
   const {weatherData} = useWeatherData();
   const elevation = UseElevation();
   
@@ -10,6 +11,7 @@ const Weather = () => {
     <div>
       {weatherData ? (
         <>
+          {/* elevation,humidity,pressure and windspeed */}
           <div class="box-holder">
             <div class="box1">
               <p class="p1">Elevation</p>
@@ -30,6 +32,7 @@ const Weather = () => {
           </div>
         </>
       ) : (
+        //loading/error message
         <p>Loading weather data...</p>
       )}
     </div>

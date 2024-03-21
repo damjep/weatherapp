@@ -3,13 +3,14 @@ import axios from 'axios';
 import "./menu.css"
 
 const Menu = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [elevation, setElevation] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedAreas, setSelectedAreas] = useState([]);
+  const [weatherData, setWeatherData] = useState(null); // State to store the weather data
+  const [elevation, setElevation] = useState(null); // State to store the elevation
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control the visibility of the menu
+  const [searchQuery, setSearchQuery] = useState(''); // State to store the search query
+  const [selectedAreas, setSelectedAreas] = useState([]); // State to store the list of selected areas
   const [showSearchPopup, setShowSearchPopup] = useState(false); // State to control the visibility of the search popup
 
+  // api calls
   const fetchWeatherByCoords = async (latitude, longitude) => {
     try {
       const apiKey = '1a945b25256fccab584f58958074cda8';
@@ -46,9 +47,8 @@ const Menu = () => {
 
   const fetchElevation = async (latitude, longitude) => {
     try {
-      const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
       const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/elevation/json?locations=${latitude},${longitude}&key=${apiKey}`
+        `https://api.open-meteo.com/v1/elevation?latitude=${latitude}&longitude=${longitude}`
       );
 
       // Extract elevation data from the response
@@ -61,6 +61,7 @@ const Menu = () => {
     }
   };
 
+  // Geolocation logic (Longitude and Latitude)
   useEffect(() => {
     // Check if geolocation is supported by the browser
     if (navigator.geolocation) {
@@ -84,22 +85,28 @@ const Menu = () => {
     }
   }, []);
 
+  // Location card logic 
+
+  // Search logic
   const handleSearch = () => {
     if (searchQuery.trim() !== '') {
       fetchWeatherByCity(searchQuery);
     }
   };
 
+  // Add area logic
   const handleAddArea = () => {
     // Show the search popup when the plus icon is clicked
     setShowSearchPopup(true);
   };
 
+  // Area selection logic
   const handleAreaSelection = (index) => {
     // Set the selected area as the default location
     setWeatherData(selectedAreas[index]);
   };
 
+  // Area deletion logic
   const handleAreaDeletion = (index) => {
     // Remove the selected area from the list
     const newSelectedAreas = [...selectedAreas];
@@ -107,6 +114,7 @@ const Menu = () => {
     setSelectedAreas(newSelectedAreas);
   };
 
+  // Close the search popup
   const handlePopupClose = () => {
     // Close the search popup
     setShowSearchPopup(false);
@@ -117,18 +125,26 @@ const Menu = () => {
       {weatherData ? (
         <>
           <div className="header">
+            {/* menu button */}
             <div
               className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
+              {/* hamburger menu */}
               <div className="menu-line l1"></div>
               <div className="menu-line l2"></div>
               <div className="menu-line l3"></div>
             </div>
             <h2 className="location">{weatherData.name}</h2>
           </div>
+          {/* 
+          menu 
+          only shows up when hamburgermenu is pressed 
+          closes when menu button is pressed again
+          */}
           <div className="menu" style={{ display: isMenuOpen ? 'block' : 'none' }} id="menu">
             <div className="card-holder">
+              {/* Current Location Card */}
               <div className="loca-card">
                 <div className="loca-info">
                   <p className="loca-name">{weatherData.name}</p>
@@ -137,6 +153,7 @@ const Menu = () => {
                 </div>
                 <p>{weatherData.main.temp}°C</p>
               </div>
+              {/* Added Cards (other location cards which are added by clicking the plus icon) */}
               <div className="added-cards">
                 {selectedAreas.map((area, index) => (
                   <div key={index} className="loca-card" onClick={() => handleAreaSelection(index)}>
@@ -156,6 +173,7 @@ const Menu = () => {
                   </div>
                 ))}
               </div>
+              {/* Addes new Cards */}
               <div className="loca-card plus-card" onClick={handleAddArea}>
                 <div className="plus"></div>
               </div>
@@ -180,6 +198,7 @@ const Menu = () => {
           
         </>
       ) : (
+        // Loading message/error message
         <p>Loading weather data...</p>
       )}
     </div>
