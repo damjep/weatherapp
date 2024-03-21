@@ -4,6 +4,7 @@ import Main from './Components/Main/Main';
 import Menu from './Components/MenuBtn/Menu';
 import { Warning } from './Components/warning/warning';
 import HourlyForecast from './Components/Hourly/HourlyForecast';
+import "./App.css";
 
 const App = () => {
   return (
