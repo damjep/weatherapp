@@ -74,6 +74,10 @@
   font-size: 41px;
   font-weight: 700;
 }
+.loca-name{
+  font-size: 21px;
+  font-weight: 700;
+}
 .plus-card{
   display: flex;
   justify-content: center;

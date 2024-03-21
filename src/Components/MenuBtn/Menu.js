@@ -131,8 +131,9 @@ const Menu = () => {
             <div className="card-holder">
               <div className="loca-card">
                 <div className="loca-info">
-                  <p>{weatherData.name}</p>
+                  <p className="loca-name">{weatherData.name}</p>
                   <p>{weatherData.weather[0].description}</p>
+                  <p>{new Date(weatherData.dt * 1000).toLocaleDateString()} {new Date(weatherData.dt * 1000).toLocaleTimeString()}</p>
                 </div>
                 <p>{weatherData.main.temp}°C</p>
               </div>
@@ -140,8 +141,9 @@ const Menu = () => {
                 {selectedAreas.map((area, index) => (
                   <div key={index} className="loca-card" onClick={() => handleAreaSelection(index)}>
                     <div className="loca-info">
-                      <p>{area.name}</p>
+                      <p className="loca-name">{area.name}</p>
                       <p>{area.weather[0].description}</p>
+                      <p>{new Date(area.dt * 1000).toLocaleDateString()} {new Date(area.dt * 1000).toLocaleTimeString()}</p>
                     </div>
                     <p>{area.main.temp}°C</p>
                     <div className="delete-btn" onClick={(e) => {
