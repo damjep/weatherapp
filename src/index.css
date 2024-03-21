@@ -56,34 +56,3 @@ code {
   grid-template-columns: 1fr 1fr;
   grid-gap: 0px;
 }
-
-.hourlyContainer {
-  max-width: 100%; 
-  overflow-x: auto; 
-  white-space: nowrap; /* Prevent wrapping of items */
-  position: relative; 
-}
-
-.hourlyList {
-  display: flex;
-  gap: 20px; /* Add space between items */
-}
-
-.hourlyItem {
-  flex: 0 0 auto; 
-  padding: 10px;
-  border: 1px solid #333; /* Dark grey border */
-  border-radius: 5px;
-  background-color: #f9f9f9; 
-  color: #333; /* Dark grey text color */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add shadow */
-}
-
-.hourlyTitle {
-  position: sticky; 
-  top: 0; /* Stick to the top */
-  background-color: #222; /* Black background */
-  padding: 10px; 
-  color: #fff; 
-  z-index: 1; 
-}

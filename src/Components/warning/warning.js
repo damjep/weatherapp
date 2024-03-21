@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import "./warning.css"
 import UseFloodWarning from "../fetch/fetchFloodWarning";
 
