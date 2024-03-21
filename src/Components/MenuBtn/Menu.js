@@ -3,13 +3,14 @@ import axios from 'axios';
 import "./menu.css"
 
 const Menu = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [elevation, setElevation] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedAreas, setSelectedAreas] = useState([]);
+  const [weatherData, setWeatherData] = useState(null); // State to store the weather data
+  const [elevation, setElevation] = useState(null); // State to store the elevation
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control the visibility of the menu
+  const [searchQuery, setSearchQuery] = useState(''); // State to store the search query
+  const [selectedAreas, setSelectedAreas] = useState([]); // State to store the list of selected areas
   const [showSearchPopup, setShowSearchPopup] = useState(false); // State to control the visibility of the search popup
 
+  // api calls
   const fetchWeatherByCoords = async (latitude, longitude) => {
     try {
       const apiKey = '1a945b25256fccab584f58958074cda8';
@@ -61,6 +62,7 @@ const Menu = () => {
     }
   };
 
+  // Geolocation logic (Longitude and Latitude)
   useEffect(() => {
     // Check if geolocation is supported by the browser
     if (navigator.geolocation) {
@@ -83,6 +85,8 @@ const Menu = () => {
       console.error('Geolocation is not supported by this browser.');
     }
   }, []);
+
+  // Location card logic 
 
   const handleSearch = () => {
     if (searchQuery.trim() !== '') {
@@ -117,6 +121,7 @@ const Menu = () => {
       {weatherData ? (
         <>
           <div className="header">
+            {/* menu button */}
             <div
               className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -129,6 +134,7 @@ const Menu = () => {
           </div>
           <div className="menu" style={{ display: isMenuOpen ? 'block' : 'none' }} id="menu">
             <div className="card-holder">
+              {/* Current Location Card */}
               <div className="loca-card">
                 <div className="loca-info">
                   <p className="loca-name">{weatherData.name}</p>
@@ -137,6 +143,7 @@ const Menu = () => {
                 </div>
                 <p>{weatherData.main.temp}°C</p>
               </div>
+              {/* Added Cards */}
               <div className="added-cards">
                 {selectedAreas.map((area, index) => (
                   <div key={index} className="loca-card" onClick={() => handleAreaSelection(index)}>
