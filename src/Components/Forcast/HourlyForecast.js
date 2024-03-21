@@ -31,7 +31,6 @@ const HourlyForecast = () => {
         {weatherData ? (
           <>
           <div>
-              <br></br>
               <h2 className="hourlyTitle"> Daily Forecast</h2>
               <hr></hr>
 

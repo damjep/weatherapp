@@ -37,9 +37,9 @@ function App() {
     </div>
 
     <div className='right'>
+      <HF/>
       <Warning/>
       <Weather/>
-      <HF/>
     </div>
 
 
