@@ -15,11 +15,11 @@ function App() {
 
   useEffect(() => {
     if (weatherData != null) {
-      if (weatherData.dt == weatherData.sys.sunrise) {
+      if (weatherData.current.dt == weatherData.current.sunrise) {
         setTheme("light")
         console.log(Theme);
       }
-      else if (weatherData.dt >= weatherData.sys.sunset ) {
+      else if (weatherData.current.dt >= weatherData.current.sunset ) {
         setTheme("night")
         console.log(Theme)
       }

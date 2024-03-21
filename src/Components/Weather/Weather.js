@@ -17,15 +17,15 @@ const Weather = () => {
             </div>
             <div class="box1">
               <p class="p1">Humidity</p>
-              <p class="p2">{weatherData.main.humidity}%</p>
+              <p class="p2">{weatherData.current.humidity}%</p>
             </div>
             <div class="box1">
               <p class="p1">Pressure</p>
-              <p class="p2">{weatherData.main.pressure}</p>
+              <p class="p2">{weatherData.current.pressure}</p>
             </div>
             <div class="box1">
               <p class="p1">Wind Speed</p>
-              <p class="p2">{weatherData.wind.speed}m/s</p>
+              <p class="p2">{weatherData.current.wind_speed}m/s</p>
             </div>
           </div>
         </>

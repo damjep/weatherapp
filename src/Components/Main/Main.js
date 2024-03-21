@@ -36,14 +36,14 @@ export default function Main() {
                 <>
                 <div className="container">
                     <div className="left">
-                        <Temp t={weatherData.main.temp} />
-                        <p className="desc">{weatherData.weather[0].description}</p>
+                        <Temp t={weatherData.current.temp} />
+                        <p className="desc">{weatherData.current.weather[0].description}</p>
                         <div>
-                            <p className="feels_like">Feels Like: {weatherData.main.feels_like}</p>
+                            <p className="feels_like">Feels Like: {weatherData.current.feels_like}</p>
                         </div>
                         
                     </div>
-                    <Icon icon={weatherData.weather[0].icon} />
+                    <Icon icon={weatherData.current.weather[0].icon} />
                 </div>
                     
                 </>
