@@ -97,10 +97,14 @@ const HourlyForecast = () => {
     
       const fetchData = async (latitude, longitude) => {
         try {
+            const url =  `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric`;
+            console.log(url);
           const apiKey = '3a465d09f7b3550d880f18e8caa63cba';
           const response = await axios.get(
             //`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
-            'https://api.openweathermap.org/data/3.0/onecall?lat=44.34&lon=10.99&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric'
+            // 'https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric'
+            //  'https://api.openweathermap.org/data/3.0/onecall?lat=44.34&lon=10.99&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric'
+            url
 
           );
           console.log("here 2");
@@ -143,6 +147,9 @@ const HourlyForecast = () => {
           {hourlyWeather ? (
             <>
             <div>
+                <br></br>
+                <hr></hr>
+                <br></br>
                 <h2> Hourly Forecast</h2>
                 <div className="hourlyList">
                 {hourlyWeather.hourly.map((hour, index) => (
