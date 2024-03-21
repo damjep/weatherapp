@@ -1,30 +1,41 @@
 .hourlyContainer {
-    width: 70%; 
-    white-space: nowrap; /* Prevent wrapping of items */
-    position: relative; 
-  }
+  width: 90%; 
+  white-space: nowrap; /* Prevent wrapping of items */
+  position: relative; 
+
+  background: rgba(16, 16, 16, 0.1);
+  box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.5);
+  border-radius: 17px;
+}
+
+.hourlyList {
+  overflow-x: overlay;
+  display: flex;
+}
+
+.hourlyItem {
+  height: auto;
+  border-radius: 5px;
+}
+
+.icon {
+  height: auto;
+}
+
+.img-hf {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+      width: 5em;
+      height: auto;
+}
+
+.hourlyTitle {
+  position: sticky; 
+  top: 0; /* Stick to the top */
+  padding: 10px; 
+  color: #fff; 
+  z-index: 1; 
+}
+
   
-  .hourlyList {
-    overflow-x: scroll;
-    display: flex;
-    gap: 20px; /* Add space between items */
-  }
-  
-  .hourlyItem {
-    flex: 0 0 auto; 
-    padding: 10px;
-    border: 1px solid #333; /* Dark grey border */
-    border-radius: 5px;
-    background-color: #f9f9f9; 
-    color: #333; /* Dark grey text color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add shadow */
-  }
-  
-  .hourlyTitle {
-    position: sticky; 
-    top: 0; /* Stick to the top */
-    background-color: #222; /* Black background */
-    padding: 10px; 
-    color: #fff; 
-    z-index: 1; 
-  }

@@ -13,8 +13,8 @@ export default function Main() {
         iconS += JSON.stringify(icon).split("")[11]
 
         return <>
-        <div className="right">
-            <img src={"https://openweathermap.org/img/wn/" + iconS + "@2x.png"} />
+        <div className="right-main">
+            <img className='img-main' src={"https://openweathermap.org/img/wn/" + iconS + "@2x.png"} />
         </div>
         </>
     }
@@ -35,7 +35,7 @@ export default function Main() {
             {weatherData ? (
                 <>
                 <div className="container">
-                    <div className="left">
+                    <div className="left-main">
                         <Temp t={weatherData.current.temp} />
                         <p className="desc">{weatherData.current.weather[0].description}</p>
                         <div>

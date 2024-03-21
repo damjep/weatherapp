@@ -82,11 +82,14 @@
 
   .left {
     margin: 2em;
+    width: 30vw;
     flex: 50%;
   }
 
   .right {
     margin: 2em;
+    width: 70vw;
+    height: 100%;
     flex: 50%;
   }
 }

@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
 import useWeatherData from "../fetch/useWeatherData";
-import "./forecast.css"
+import './forecast.css'
 
 const HourlyForecast = () => {
 
@@ -20,8 +20,8 @@ const HourlyForecast = () => {
       iconS += JSON.stringify(icon).split("")[11]
 
       return <>
-      <div className="right">
-          <img src={"https://openweathermap.org/img/wn/" + iconS + "@2x.png"} />
+      <div className="icon">
+          <img className="img-hf" src={"https://openweathermap.org/img/wn/" + iconS + "@2x.png"} />
       </div>
       </>
   }
@@ -38,10 +38,10 @@ const HourlyForecast = () => {
               <div className="hourlyList">
                   {hourly.map( ( hour, index ) => (
                     <div key={index} className="hourlyItem">
-                        <p>Date: {new Date(hour.dt * 1000).toLocaleDateString()}</p>
-                        <p>Time: {new Date(hour.dt * 1000).toLocaleTimeString()}</p>
+                        <p>{new Date(hour.dt * 1000).toLocaleDateString([] , {day: 'numeric', month:'numeric'})}</p>
+                        <p>{new Date(hour.dt * 1000).toLocaleTimeString([] , {hour: '2-digit'})}</p>
                         <Icon icon={hour.weather[0].icon}/>
-                        <p>Temperature: {hour.temp}°C</p>
+                        <p>{hour.temp}°C</p>
                     </div>
                   ))}
               </div>

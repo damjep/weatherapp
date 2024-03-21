@@ -91,17 +91,17 @@
 .box {color: #FFFFFF;
 }
 
-.left {
+.left-main {
     flex: 60%;
 }
 
-.right {
+.right-main {
     flex: auto;
     width: auto;
     display: block;
 }
 
-img {
+.img-main {
     position: relative;
     height: 130px;
     width: auto;
