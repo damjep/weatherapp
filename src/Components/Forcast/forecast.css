@@ -47,4 +47,13 @@
   z-index: 1; 
 }
 
-  
+.hr {
+  display: flex;
+}
+
+.svg-hr {
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 50em;
+  height: auto;
+}

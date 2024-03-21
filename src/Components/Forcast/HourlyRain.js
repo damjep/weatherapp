@@ -1,132 +1,51 @@
 import React, {useEffect, useState } from "react";
-import axios from 'axios';
-import FetchData from "../fetch/fetchData";
+import useWeatherData from "../fetch/useWeatherData";
 
 
 const HourlyRain = () => {
+    const [HourlyRain, setHourlyRain] = useState([]);
+    const {weatherData} = useWeatherData();
 
-    const [HourlyRain, setHourlyRain] = useState()
-    const [loading, setLoading]= useState(true);
-    const [error, setError]= useState(null);
-    const [elevation, setElevation] = useState(null);
+    useEffect(() => {
+      if (weatherData && weatherData.hourly) {
+        setHourlyRain(weatherData.hourly)
+      }
+    })
+    return (
+      <div className="hourlyContainer">
+        {HourlyRain ? (
+          <>
+          <div>
+            <h2 className="hourlyTitle">Chance of Rain</h2>
+            <hr></hr>
+            <div className="hr">
+              <svg className="svg-hr" width="105" height="60" viewBox="0 0 105 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20.362" width="3" height="42" rx="1.5" transform="rotate(29 20.362 0)" fill="#D9D9D9"/>
+                <path d="M80.2586 5.7664C80.6603 5.04184 81.5732 4.78005 82.2978 5.18168C83.0223 5.58331 83.2841 6.49627 82.8825 7.22083L63.9749 41.331C63.5733 42.0556 62.6603 42.3173 61.9358 41.9157C61.2112 41.5141 60.9494 40.6011 61.3511 39.8766L80.2586 5.7664Z" fill="#D9D9D9"/>
+                <rect x="40.978" width="3" height="66.7953" rx="1.5" transform="rotate(29 40.978 0)" fill="#D9D9D9"/>
+                <rect x="101.978" y="2" width="3" height="59.3598" rx="1.5" transform="rotate(29 101.978 2)" fill="#D9D9D9"/>
+                <rect x="58.7155" y="6" width="3" height="50.9798" rx="1.5" transform="rotate(29 58.7155 6)" fill="#D9D9D9"/>
+              </svg>
 
-   
-
-    console.log("here 1");
-    const fetchElevation = async (latitude, longitude) => {
-        try {
-          const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
-          const response = await axios.get(
-            `https://maps.googleapis.com/maps/api/elevation/json?locations=${latitude},${longitude}&key=${apiKey}`
-          );
-    
-          // Extract elevation data from the response
-          const elevationResult = response.data.results[0];
-          const elevationValue = elevationResult ? elevationResult.elevation : null;
-    
-          setElevation(elevationValue);
-        } catch (error) {
-            console.log("error 1");
-          console.error('Error fetching elevation data:', error);
-        }
-      };
-    
-      const fetchData = async (latitude, longitude) => {
-        try {
-            const url =  `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric`;
-            console.log(url);
-          const apiKey = '3a465d09f7b3550d880f18e8caa63cba';
-          const response = await axios.get(
-            //`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
-            // 'https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric'
-            //  'https://api.openweathermap.org/data/3.0/onecall?lat=44.34&lon=10.99&exclude={part}&appid=bfd925496fb893f00d859137e9e982a6&units=metric'
-            url
-
-          );
-          console.log("here 2");
-          setHourlyRain(response.data);
-          console.log("here 3");
-          console.log(response.data); //You can see all the weather data in console log
-          // Fetch elevation data using geolocation coordinates
-          
-        } catch (error) {
-            console.log(" error 2 ");
-          console.error(error);
-        }
-      };
-      useEffect(() => {
-        console.log("here 4");
-        // Check if geolocation is supported by the browser
-        if (navigator.geolocation) {
-          // Get the user's current location
-          navigator.geolocation.getCurrentPosition(
-            function (position) {
-              const latitude = position.coords.latitude;
-              const longitude = position.coords.longitude;
-    
-              // Fetch weather data using geolocation coordinates
-              fetchData(latitude, longitude);
-            },
-            function (error) {
-              // Handle errors in getting the user's location
-              console.error('Error getting location:', error.message);
-            }
-          );
-        } else {
-          // Geolocation is not supported by the browser
-          console.error('Geolocation is not supported by this browser.');
-        }
-      }, []);
-
-      return (
-        <div className="hourlyContainer">
-          {HourlyRain ? (
-            <>
-            <div>
-                <br></br>
-                <hr></hr>
-                <br></br>
-                <br></br>
-                <br></br>
-                
-                <div className="hourlyList">
-                    <h2 className="hourlyTitle">Chance of Rain</h2>
-                {HourlyRain.hourly.map((hour, index) => (
-                            <div key={index} className="hourlyItem">
-                                <p>Date: {new Date(hour.dt * 1000).toLocaleDateString()}</p>
-                                <p>Time: {new Date(hour.dt * 1000).toLocaleTimeString()}</p>
-                                <p>Probability: {hour.pop*100}%</p>
-                                
-                                
-                            </div>
-                        ))}
-              
-                
-                  {/* <p >Humidity</p>
-                  <p >{hourlyWeather.hourly[0].temp}%</p> */}
-                
-                {/* <div class="box1">
-                  <p class="p1">Pressure</p>
-                  <p class="p2">{hourlyWeather.main.pressure}</p>
-                </div>
-                <div class="box1">
-                  <p class="p1">Wind Speed</p>
-                  <p class="p2">{hourlyWeather.wind.speed}m/s</p>
-                </div> */}
-
-                </div>
+              <div className="hourlyList">
+                      {HourlyRain.map((hour, index) => (
+                        <div key={index} className="hourlyItem">
+                            <p>{new Date(hour.dt * 1000).toLocaleDateString([], {day:'numeric', month:'long'})}</p>
+                            <p>{new Date(hour.dt * 1000).toLocaleTimeString([], {hour:'2-digit'})}</p>
+                            <p>Probability: {hour.pop*100}%</p>
+                        </div>
+                    ))}
+              </div>
 
             </div>
-          
-                
-             
-            </>
-          ) : (
-            <p>Loading weather data...</p>
-          )}
-        </div>
-      );
-
+            
+          </div>
+          </>
+        ) : (
+          <p>Loading weather data...</p>
+      )}
+    </div>
+  );
 }
 
 export default HourlyRain;
