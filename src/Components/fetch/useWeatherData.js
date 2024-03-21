@@ -1,8 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { FetchData } from "./fetchData";
 
+const WeatherDataContext = createContext();
+
 export default function useWeatherData() {
+    return useContext(WeatherDataContext);
+}
+
+export function WeatherDataProvider({children}) {
     const [weatherData, setWeatherData] = useState(null);
+    const [selectedAreas, setSelectedAreas] = useState([]);
 
     useEffect(() => {
         // Check if geolocation is supported by the browser
@@ -16,6 +23,7 @@ export default function useWeatherData() {
                 try {
                     const data = await FetchData(latitude, longitude);
                     setWeatherData(data)
+                    setSelectedAreas( ...selectedAreas, data)
                 } catch (error) {
                     console.log(error)
                 }
@@ -32,5 +40,11 @@ export default function useWeatherData() {
         }
     }, []);
 
-    return weatherData;
+
+    
+    return (
+        <WeatherDataContext.Provider value={{weatherData, selectedAreas}} >
+            {children}
+        </WeatherDataContext.Provider>
+    );
 }

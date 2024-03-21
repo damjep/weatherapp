@@ -52,6 +52,10 @@
     background: linear-gradient(205.41deg, #21205B 11.26%, rgba(117, 115, 198, 0.76) 83.9%);
   }
 
+  .light {
+    background: linear-gradient(205.41deg, #21205B 11.26%);
+  }
+
   .eclipse-top {
     /* Ellipse 42 */
     position: absolute;

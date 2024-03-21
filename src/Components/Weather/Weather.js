@@ -3,7 +3,7 @@ import useWeatherData from '../fetch/useWeatherData';
 import UseElevation from '../fetch/useElevationData';
 
 const Weather = () => {
-  const weatherData = useWeatherData();
+  const {weatherData} = useWeatherData();
   const elevation = UseElevation();
   
   return (

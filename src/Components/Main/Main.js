@@ -1,9 +1,12 @@
 import "./Main.css"
 import useWeatherData from "../fetch/useWeatherData";
+import { useState } from "react";
 
 export default function Main() {
-    const weatherData = useWeatherData();
-        
+    const {weatherData} = useWeatherData();
+    const {selectedAreas} = useWeatherData();
+    const [data , setData] = useState([])
+    
     function Icon(icon) {
         let iconS = JSON.stringify(icon).split("")[9]
         iconS += JSON.stringify(icon).split("")[10]
