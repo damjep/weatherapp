@@ -26,50 +26,6 @@ code {
   z-index: 100;
 }
 
-.menu-bnt{
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0px 20px;
-  z-index: 100;
-}
-
-.menu-line{
-  width: 30px;
-  height: 4px;
-  background: white;
-  border-radius: 3px;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
-}
-
-.open > .l1{
-  transform: 
-    translate(0px, 10px) 
-    rotate(405deg);
-}
-.open > .l3{
-  transform: 
-    translate(0px, -11px) 
-    rotate(135deg);
-}
-.open > .l2{
-  display: none;
-}
-
-.menu{
-  background: rgba(74, 74, 74, 0.54);
-  backdrop-filter: blur(32.3px);
-  /* Note: backdrop-filter has minimal browser support */
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-}
-
 
 .box1 {
   width: 16em;
@@ -99,37 +55,33 @@ code {
   grid-gap: 0px;
 }
 
-.card-holder {
-  margin: 60px 10px;
+.hourlyContainer {
+  max-width: 100%; 
+  overflow-x: auto; 
+  white-space: nowrap; /* Prevent wrapping of items */
+  position: relative; 
 }
-.loca-card{
-  width: 400px;
-  height: 104px;
 
-  background: rgba(217, 217, 217, 0.11);
-  border-radius: 24px;
-
+.hourlyList {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  gap: 20px; /* Add space between items */
+}
+
+.hourlyItem {
+  flex: 0 0 auto; 
   padding: 10px;
-  margin: 10px;
-  position: relative;
+  border: 1px solid #333; /* Dark grey border */
+  border-radius: 5px;
+  background-color: #f9f9f9; 
+  color: #333; /* Dark grey text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add shadow */
 }
-.loca-card>p{
-  font-size: 41px;
-  font-weight: 700;
-}
-.plus-card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.plus{
-  width: 50px;
-  height: 50px;
-  color: aliceblue;
-  background: rgb(255, 255, 255);
-  clip-path: polygon(40.6% 0.3%, 60.1% 0%, 60.1% 39.8%, 100% 39.5%, 100% 58.3%, 60.6% 58.5%, 60.8% 100%, 40.1% 100%, 40.1% 58.8%, 0% 58.8%, 0% 40.3%, 40.6% 40%);
+
+.hourlyTitle {
+  position: sticky; 
+  top: 0; /* Stick to the top */
+  background-color: #222; /* Black background */
+  padding: 10px; 
+  color: #fff; 
+  z-index: 1; 
 }
