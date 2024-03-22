@@ -31,13 +31,13 @@ const HourlyForecast = () => {
         {weatherData ? (
           <>
           <div>
-              <h2 className="hourlyTitle"> Daily Forecast</h2>
+              <h2 className="hourlyTitle"> Hourly Forecast</h2>
               <hr></hr>
 
               <div className="hourlyList">
                   {hourly.map( ( hour, index ) => (
                     <div key={index} className="hourlyItem">
-                        <p>{new Date(hour.dt * 1000).toLocaleDateString([] , {day: 'numeric', month:'numeric'})}</p>
+                        <p>{new Date(hour.dt * 1000).toLocaleDateString([] , {month:'long',day: 'numeric'})}</p>
                         <p>{new Date(hour.dt * 1000).toLocaleTimeString([] , {hour: '2-digit'})}</p>
                         <Icon icon={hour.weather[0].icon}/>
                         <p>{hour.temp}°C</p>
