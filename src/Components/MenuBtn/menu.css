@@ -141,6 +141,7 @@
     height: 104px;
   }
   .search-popup{
+    top:570px;
     left: 0px;
   }
 }
