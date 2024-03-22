@@ -1,5 +1,4 @@
 import React, { useState } from 'react'; // Import React and useState
-import styles from './sos.css';
 
 const Sos = () => { 
   const [searchQuery, setSearchQuery] = useState(''); 
