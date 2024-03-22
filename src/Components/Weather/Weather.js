@@ -1,6 +1,8 @@
 import React from 'react';
 import useWeatherData from '../fetch/useWeatherData';
 import UseElevation from '../fetch/useElevationData';
+import HR from '../Forcast/HourlyRain';
+import "./weather.css"
 
 const Weather = () => {
   //fetch weather/elevation data
@@ -8,7 +10,7 @@ const Weather = () => {
   const elevation = UseElevation();
   
   return (
-    <div>
+    <div className='weather-div'>
       {weatherData ? (
         <>
           {/* elevation,humidity,pressure and windspeed */}
@@ -30,6 +32,8 @@ const Weather = () => {
               <p class="p2">{weatherData.current.wind_speed}m/s</p>
             </div>
           </div>
+
+          <HR />
         </>
       ) : (
         //loading/error message

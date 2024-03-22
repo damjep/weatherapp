@@ -12,7 +12,7 @@ const HourlyRain = () => {
       }
     })
     return (
-      <div className="hourlyContainer">
+      <div className="weather-right">
         {HourlyRain ? (
           <>
           <div>
