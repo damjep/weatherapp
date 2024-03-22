@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    z-index: 110;
 }
 
 .location {
   margin: 10px 0px;
+  z-index: 110;
 }
 
 .menu-bnt{
@@ -14,7 +16,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0px 20px;
-  z-index: 100;
+  z-index: 110;
 }
 
 .menu-line{
@@ -27,7 +29,7 @@
 
 .open > .l1{
   transform: 
-    translate(0px, 10px) 
+    translate(0px, 11px) 
     rotate(405deg);
 }
 .open > .l3{
@@ -42,6 +44,7 @@
 .menu{
   background: rgba(74, 74, 74, 0.54);
   backdrop-filter: blur(32.3px);
+  z-index: 100;
   /* Note: backdrop-filter has minimal browser support */
 
   position: absolute;
