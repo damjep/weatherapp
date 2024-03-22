@@ -38,7 +38,7 @@
   }
 }
 
-@media (min-width: 421px) {
+@media (min-width: 431px) {
   .desktop {
     display: flex;
     position: relative;
@@ -101,4 +101,64 @@
   .bottom {
     margin: 2em;  
   }
+}
+
+@media (max-width:430px) {
+  .night {
+    /* Desktop Frame */
+    background: linear-gradient(205.41deg, #21205B 11.26%, rgba(117, 115, 198, 0.76) 83.9%);
+  }
+
+  .light {
+    background: linear-gradient(205.41deg, #21205B 11.26%);
+  }
+
+  .eclipse-top {
+    /* Ellipse 42 */
+    position: absolute;
+    width: 914px;
+    height: 873px;
+    right: -20em;
+    bottom: -30em;
+
+    background: rgba(253, 173, 255, 0.33);
+    filter: blur(166.65px);
+  }
+
+  .eclipse-btm {
+    /* Ellipse 40 */
+    position: absolute;
+    width: 914px;
+    height: 873px;
+    right: -15em;
+    top: -30em;
+
+    background: rgba(127, 67, 255, 0.33);
+    filter: blur(166.65px);
+  }
+
+  .desktop {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    overflow-x: hidden;
+  }
+
+  .desktop::-webkit-scrollbar {
+    display: none;
+  }
+
+  .left {
+    margin: auto;
+    width: 100%;
+  }
+
+  .right {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+
 }
