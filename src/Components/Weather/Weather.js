@@ -33,7 +33,10 @@ const Weather = () => {
             </div>
           </div>
 
-          <HR />
+          <div className='HR'>
+            <HR />
+          </div>
+          
         </>
       ) : (
         //loading/error message
