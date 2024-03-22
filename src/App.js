@@ -18,6 +18,16 @@ function App() {
 
   useEffect(() => {
     if (weatherData && weatherData.current) {
+      const menuBtn = document.getElementById('menuBtn')
+      const desktop = document.getElementById('desktop')
+      menuBtn.addEventListener("onclick", () => {
+        if (desktop.style.overflowY != 'hidden') {
+          desktop.style.overflowY = 'hidden';
+        } else {
+          desktop.style.overflowY = 'scroll';
+        }
+      })
+
       if (weatherData.current.dt >= weatherData.current.sunrise && weatherData.current.dt <= weatherData.current.sunset) {
         setTheme("light")
         document.getElementById('ec-top').style.display = 'none'
@@ -34,7 +44,7 @@ function App() {
   } , [weatherData])
 
   return ( <>
-  <div className={`desktop ${Theme}`}>
+  <div className={`desktop ${Theme}`} id='desktop'>
     <span className='eclipse-top' id='ec-top'/>
     <span className='eclipse-btm' id='ec-btm'/>
 

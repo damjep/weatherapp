@@ -46,6 +46,7 @@
     height: 100vh;
     margin: auto;
     overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   .desktop::-webkit-scrollbar {

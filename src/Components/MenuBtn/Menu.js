@@ -129,6 +129,7 @@ const Menu = () => {
             <div
               className={`menu-bnt ${isMenuOpen ? 'open' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              id='menuBtn'
             >
               {/* hamburger menu */}
               <div className="menu-line l1"></div>
