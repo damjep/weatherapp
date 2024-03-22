@@ -24,10 +24,10 @@ function App() {
         document.getElementById('ec-btm').style.display = 'none'
         console.log(Theme);
       }
-      else if (weatherData.current.dt >= weatherData.current.sunset) {
+      else if (weatherData.current.dt <= weatherData.current.sunset) {
         setTheme("night")
-        document.getElementById('ec-top').style.display = 'contents'
-        document.getElementById('ec-btm').style.display = 'contents'
+        document.getElementById('ec-top').style.display = 'block'
+        document.getElementById('ec-btm').style.display = 'block'
         console.log(Theme)
       }
     }
