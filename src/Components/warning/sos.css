@@ -2,7 +2,7 @@
 
 .sos{
   position: relative;
-  width: 630px;
+  width: auto;
   height: 285px;
 
   background: rgba(16, 16, 16, 0.1);
@@ -24,7 +24,7 @@
 
 
 input[type=text] {
-  width: 568px;
+  width: 80%;
   height: 140px;
 
   background: rgba(16, 16, 16, 0.1);
@@ -44,7 +44,6 @@ button{
   border-radius: 8px;
   margin: 15px 10px;
 
-  transform: translate(270px, 0px);
 }
 
 

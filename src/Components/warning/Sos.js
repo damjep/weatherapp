@@ -15,7 +15,8 @@ const Sos = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button>SOS</button>
+        <button>
+          <a href='tel:999'>SOS</a></button>
         <button>Send Message</button>
       </div>
     </>
