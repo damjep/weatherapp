@@ -5,8 +5,8 @@
 }
 
   .box1 {
-    width: 16em;
-    height: 9em;
+    width: 10em;
+    height: 6em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,11 +19,11 @@
     border-radius: 17px;
   }
   .p1{
-    font-size: 1em;
+    font-size: .8em;
     font-weight: 800;
   }
   .p2{
-    font-size: 2em;
+    font-size: 1.3em;
   }
   .box-holder {
     width: 400px;
