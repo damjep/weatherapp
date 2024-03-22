@@ -6,6 +6,7 @@
     width: 10em;
     height: 6em;
     display: flex;
+    margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -34,11 +35,12 @@
 
 @media (max-width:431px) {
     .box1 {
-        width: 15vw;
+        width: 30vw;
         height: 9em;
         display: flex;
+        margin: auto;
         flex-direction: column;
-        justify-content: center;
+        justify-content: none;
         align-items: center;
         padding: 10px;
         margin: 20px;
@@ -56,10 +58,14 @@
     }
     .box-holder {
         width: 90vw;
-        margin: auto;
+        height: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 0px;
-        flex: 65%;
     } 
+
+    .weather-div {
+        width: 100%;
+
+    }
 }
