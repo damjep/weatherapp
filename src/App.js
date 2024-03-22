@@ -44,6 +44,7 @@ function App() {
       <HF/>
       <Warning/>
       <Weather/>
+      <HR />
       <Forecast />
     </div>
 

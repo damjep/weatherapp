@@ -1,7 +1,6 @@
 import React from 'react';
 import useWeatherData from '../fetch/useWeatherData';
 import UseElevation from '../fetch/useElevationData';
-import HR from '../Forcast/HourlyRain';
 import "./weather.css"
 
 const Weather = () => {
@@ -31,10 +30,6 @@ const Weather = () => {
               <p class="p1">Wind Speed</p>
               <p class="p2">{weatherData.current.wind_speed}m/s</p>
             </div>
-          </div>
-
-          <div className='HR'>
-            <HR />
           </div>
           
         </>
