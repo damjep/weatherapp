@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './forecast.css'; // Import the CSS file
+import useWeatherData from '../fetch/useWeatherData';
 
 const Forecast = () => {
     const apiKey = 'd69680645c7443d998c30148242003';
@@ -53,8 +54,7 @@ const Forecast = () => {
                         <thead>
                             <tr>
                                 <th>Day</th>
-                                <th>AM</th>
-                                <th>PM</th>
+                                <th></th>
                                 <th>Temp</th>
                                 <th>Hi</th>
                                 <th>Lo</th>
@@ -64,8 +64,7 @@ const Forecast = () => {
                             {weatherData.map((dayForecast, index) => (
                                 <tr key={index}>
                                     <td>{getDayName(index)}</td>
-                                    <td>Icon AM</td>
-                                    <td>Icon PM</td>
+                                    <td></td>
                                     <td>{dayForecast.day.avgtemp_c}°C</td>
                                     <td>{dayForecast.day.maxtemp_c}°C</td>
                                     <td>{dayForecast.day.mintemp_c}°C</td>

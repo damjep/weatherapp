@@ -2,7 +2,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: auto;
     width: 90%;
     height: auto;
     background: rgba(16, 16, 16, 0.1);

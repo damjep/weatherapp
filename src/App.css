@@ -45,7 +45,11 @@
     width: 100vw;
     height: 100vh;
     margin: auto;
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+  .desktop::-webkit-scrollbar {
+    display: none;
   }
 
   .night {
