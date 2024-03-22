@@ -122,11 +122,25 @@
   background: rgba(217, 217, 217, 0.11);
   padding: 30px;
   border-radius: 24px;
+  z-index: 150;
 }
 
 .close{
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   cursor: pointer;
+}
+
+@media (max-width:431px) {
+  .card-holder {
+    margin: 100px 0px;
+  }   
+  .loca-card{
+    width: 370px;
+    height: 104px;
+  }
+  .search-popup{
+    left: 0px;
+  }
 }
