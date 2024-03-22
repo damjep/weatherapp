@@ -10,6 +10,7 @@ import { Warning } from './Components/warning/warning';
 import "./App.css";
 import useWeatherData from './Components/fetch/useWeatherData';
 import Topo from './Components/topography/topo';
+import { SelectedAreasProvider } from './Components/MenuBtn/SelectedAreas';
 
 
 function App() {
@@ -18,15 +19,6 @@ function App() {
 
   useEffect(() => {
     if (weatherData && weatherData.current) {
-      const menuBtn = document.getElementById('menuBtn')
-      const desktop = document.getElementById('desktop')
-      menuBtn.addEventListener("onclick", () => {
-        if (desktop.style.overflowY != 'hidden') {
-          desktop.style.overflowY = 'hidden';
-        } else {
-          desktop.style.overflowY = 'scroll';
-        }
-      })
 
       if (weatherData.current.dt >= weatherData.current.sunrise && weatherData.current.dt <= weatherData.current.sunset) {
         setTheme("light")
@@ -44,6 +36,7 @@ function App() {
   } , [weatherData])
 
   return ( <>
+  <SelectedAreasProvider>
   <div className={`desktop ${Theme}`} id='desktop'>
     <span className='eclipse-top' id='ec-top'/>
     <span className='eclipse-btm' id='ec-btm'/>
@@ -63,6 +56,7 @@ function App() {
     </div>
 
   </div>
+  </SelectedAreasProvider>
   </>);
 };
 

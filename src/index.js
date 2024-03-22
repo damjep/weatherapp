@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { WeatherDataProvider } from './Components/fetch/useWeatherData';
+import { SelectedAreasProvider } from './Components/MenuBtn/SelectedAreas';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <WeatherDataProvider>
-      <App />
-    </WeatherDataProvider>
+    <SelectedAreasProvider>
+      <WeatherDataProvider>
+        <App />
+      </WeatherDataProvider>
+    </SelectedAreasProvider>
   </React.StrictMode>
 );
 

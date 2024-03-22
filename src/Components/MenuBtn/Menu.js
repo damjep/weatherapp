@@ -1,89 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./menu.css"
+import { useSelectedAreas } from './SelectedAreas';
+import useWeatherData from '../fetch/useWeatherData';
+import { FetchData } from '../fetch/fetchData';
 
 const Menu = () => {
-  const [weatherData, setWeatherData] = useState(null); // State to store the weather data
-  const [elevation, setElevation] = useState(null); // State to store the elevation
+  const { weatherData,setWeatherData } = useWeatherData(); // State to store the weather data
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control the visibility of the menu
   const [searchQuery, setSearchQuery] = useState(''); // State to store the search query
-  const [selectedAreas, setSelectedAreas] = useState([]); // State to store the list of selected areas
+  const {selectedAreas, setSelectedAreas} = useSelectedAreas(); // State to store the list of selected areas
   const [showSearchPopup, setShowSearchPopup] = useState(false); // State to control the visibility of the search popup
-
-  // api calls
-  const fetchWeatherByCoords = async (latitude, longitude) => {
-    try {
-      const apiKey = '1a945b25256fccab584f58958074cda8';
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
-      );
-      setWeatherData(response.data);
-      // Fetch elevation data using geolocation coordinates
-      fetchElevation(latitude, longitude);
-      // Add the searched city to the list of selected areas
-      setSelectedAreas([...selectedAreas, response.data]);
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
-    }
-  };
+  const [cityData, setCityData] = useState(null);
 
   const fetchWeatherByCity = async (city) => {
     try {
-      const apiKey = '1a945b25256fccab584f58958074cda8';
+      const apiKey = 'e75719491e7470f1a5954a20eb6b8c47';
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
-      setWeatherData(response.data);
+      setCityData(response.data);
       // Fetch elevation data using geolocation coordinates
-      fetchElevation(response.data.coord.lat, response.data.coord.lon);
       // Close the search popup
       setShowSearchPopup(false);
       // Add the searched city to the list of selected areas
-      setSelectedAreas([...selectedAreas, response.data]);
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   };
 
-  const fetchElevation = async (latitude, longitude) => {
-    try {
-      const response = await axios.get(
-        `https://api.open-meteo.com/v1/elevation?latitude=${latitude}&longitude=${longitude}`
-      );
 
-      // Extract elevation data from the response
-      const elevationResult = response.data.results[0];
-      const elevationValue = elevationResult ? elevationResult.elevation : null;
-
-      setElevation(elevationValue);
-    } catch (error) {
-      console.error('Error fetching elevation data:', error);
+  // Inside Menu component
+// useEffect hook for weatherData
+useEffect(() => {
+  if (cityData) {
+    async function fetchData() {
+      try {
+        const data = await FetchData(cityData.coord.lat, cityData.coord.lon);
+        setWeatherData(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  };
+    fetchData();
+  } else {
+  }
+}, [cityData]);
 
-  // Geolocation logic (Longitude and Latitude)
-  useEffect(() => {
-    // Check if geolocation is supported by the browser
-    if (navigator.geolocation) {
-      // Get the user's current location
-      navigator.geolocation.getCurrentPosition(
-        function (position) {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
+// useEffect hook for selectedAreas
+useEffect(() => {
+  if (weatherData) {
+    setSelectedAreas([...selectedAreas, weatherData]);
+  }
+}, [weatherData]);
 
-          // Fetch weather data using user's geolocation coordinates
-          fetchWeatherByCoords(latitude, longitude);
-        },
-        function (error) {
-          // Handle errors in getting the user's location
-          console.error('Error getting location:', error.message);
-        }
-      );
-    } else {
-      // Geolocation is not supported by the browser
-      console.error('Geolocation is not supported by this browser.');
-    }
-  }, []);
+// Remove weatherData dependency from the second useEffect hook
+
 
   // Location card logic 
 
@@ -136,7 +108,7 @@ const Menu = () => {
               <div className="menu-line l2"></div>
               <div className="menu-line l3"></div>
             </div>
-            <h2 className="location">{weatherData.name}</h2>
+            <h2 className="location">{cityData ? 'Leeds': 'London'}</h2>
           </div>
           {/* 
           menu 
@@ -148,11 +120,11 @@ const Menu = () => {
               {/* Current Location Card */}
               <div className="loca-card">
                 <div className="loca-info">
-                  <p className="loca-name">{weatherData.name}</p>
-                  <p>{weatherData.weather[0].description}</p>
+                  <p className="loca-name">{}</p>
+                  <p>{weatherData.current.weather[0].description}</p>
                   <p>{new Date(weatherData.dt * 1000).toLocaleDateString()} {new Date(weatherData.dt * 1000).toLocaleTimeString()}</p>
                 </div>
-                <p>{weatherData.main.temp}°C</p>
+                <p>{weatherData.current.temp}°C</p>
               </div>
               {/* Added Cards (other location cards which are added by clicking the plus icon) */}
               <div className="added-cards">
@@ -160,10 +132,10 @@ const Menu = () => {
                   <div key={index} className="loca-card" onClick={() => handleAreaSelection(index)}>
                     <div className="loca-info">
                       <p className="loca-name">{area.name}</p>
-                      <p>{area.weather[0].description}</p>
-                      <p>{new Date(area.dt * 1000).toLocaleDateString()} {new Date(area.dt * 1000).toLocaleTimeString()}</p>
+                      <p>{area.current.weather[0].description}</p>
+                      <p>{new Date(area.current.dt * 1000).toLocaleDateString()} {new Date(area.current.dt * 1000).toLocaleTimeString()}</p>
                     </div>
-                    <p>{area.main.temp}°C</p>
+                    <p>{area.current.temp}°C</p>
                     <div className="delete-btn" onClick={(e) => {
                       e.stopPropagation(); // Prevent the click event from bubbling to the card
                       handleAreaDeletion(index);
