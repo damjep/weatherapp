@@ -93,4 +93,8 @@
     height: 100vh;
     flex: 50%;
   }
+
+  .bottom {
+    margin: 2em;  
+  }
 }
