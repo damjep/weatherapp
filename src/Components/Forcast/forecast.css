@@ -70,3 +70,11 @@
   border-radius: 17px;
   padding: 0%;
 }
+
+@media (max-width:431px) {
+  .hourlyContainer {
+    width: 95%; 
+    margin: auto;
+    margin-bottom: 1em;
+  }
+}
