@@ -110,3 +110,14 @@
     align-items: center;
     top: 55px;
 }
+
+@media (max-width:431px) {
+    .container {
+        width: auto;
+        height: 30vh;
+        display: flex;
+        margin: auto;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+}
