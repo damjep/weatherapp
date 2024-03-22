@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
 import useWeatherData from "../fetch/useWeatherData";
-
+import "./forecast.css"
 
 const HourlyRain = () => {
     const [HourlyRain, setHourlyRain] = useState([]);
@@ -12,10 +12,10 @@ const HourlyRain = () => {
       }
     })
     return (
-      <div className="weather-right">
+      <div>
         {HourlyRain ? (
           <>
-          <div>
+          <div className="HR">
             <h2 className="hourlyTitle">Chance of Rain</h2>
             <hr></hr>
             <div className="hr">
