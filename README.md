@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+Inside Visual Studio Code, open the terminal. You can do this by navigating to the top menu and selecting Terminal -> New Terminal, or by pressing the shortcut `Ctrl + ``.
+
+In the terminal, type the following command: `npm install`
+
+Once you've typed the command, hit `Enter` to execute it. npm will then install all the necessary dependencies for your React project.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
